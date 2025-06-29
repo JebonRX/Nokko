@@ -22,7 +22,8 @@ touch /usr/local/etc/xray/akunxtr.conf
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 
 # Installation Xray Core
-xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v1.5.9/xray-linux-64.zip"
+#xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v1.5.9/xray-linux-64.zip"
+xraycore_link="https://github.com/NevermoreSSH/Xcore-custompath/releases/download/v1.7.2/Xray-linux-64-v1.7.2-1.zip"
 
 # Make Main Directory
 mkdir -p /usr/bin/xray
