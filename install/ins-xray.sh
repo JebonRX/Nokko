@@ -262,7 +262,7 @@ cat> /usr/local/etc/xray/none.json << END
   },
   "inbounds": [
     {
-            "port": 8443,
+            "port": 8080,
             "protocol": "vmess",
             "settings": {
             "clients": [
@@ -294,7 +294,7 @@ cat> /usr/local/etc/xray/none.json << END
             }
         },
         {
-            "port": 8442,
+            "port": 80,
             "protocol": "vless",
             "settings": {
             "clients": [
@@ -443,15 +443,15 @@ END
 
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8442 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8442 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 1310 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 1311 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 1312 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8442 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8442 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 1310 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 1311 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 1312 -j ACCEPT
