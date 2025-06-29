@@ -183,7 +183,7 @@ cat> /usr/local/etc/xray/config.json << END
             }
         }
     ],
-    "outbounds": [
+  "outbounds": [
     {
       "protocol": "freedom",
       "settings": {}
@@ -192,6 +192,22 @@ cat> /usr/local/etc/xray/config.json << END
       "protocol": "blackhole",
       "settings": {},
       "tag": "blocked"
+    },
+    {
+      "tag": "default",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "socks_out",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1", # WARP+ Proxy
+            "port": 40000
+          }
+        ]
+      }
     }
   ],
   "routing": {
@@ -229,6 +245,30 @@ cat> /usr/local/etc/xray/config.json << END
         "protocol": [
           "bittorrent"
         ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "socks_out",
+        "domain": [
+          "netflix.com",
+          "netflix.net",
+          "nflximg.com",
+          "nflximg.net",
+          "nflxvideo.net",
+          "nflxso.net",
+          "nflxext.com",
+          "astro.com.my",
+          "amazonaws.com",
+          "ott-nav.com",
+          "ottnavigator.com",
+          "phind.com",
+          "github.com"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "default",
+        "network": "udp,tcp"
       }
     ]
   },
@@ -325,7 +365,7 @@ cat> /usr/local/etc/xray/none.json << END
           }
        }
     ],
-    "outbounds": [
+  "outbounds": [
     {
       "protocol": "freedom",
       "settings": {}
@@ -334,6 +374,22 @@ cat> /usr/local/etc/xray/none.json << END
       "protocol": "blackhole",
       "settings": {},
       "tag": "blocked"
+    },
+    {
+      "tag": "default",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "socks_out",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1", # WARP+ Proxy
+            "port": 40000
+          }
+        ]
+      }
     }
   ],
   "routing": {
@@ -359,39 +415,37 @@ cat> /usr/local/etc/xray/none.json << END
         "outboundTag": "blocked"
       },
       {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
         "type": "field",
         "outboundTag": "blocked",
         "protocol": [
           "bittorrent"
         ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "socks_out",
+        "domain": [
+          "netflix.com",
+          "netflix.net",
+          "nflximg.com",
+          "nflximg.net",
+          "nflxvideo.net",
+          "nflxso.net",
+          "nflxext.com",
+          "astro.com.my",
+          "amazonaws.com",
+          "ott-nav.com",
+          "ottnavigator.com",
+          "phind.com",
+          "github.com"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "default",
+        "network": "udp,tcp"
       }
     ]
-  },
-  "stats": {},
-  "api": {
-    "services": [
-      "StatsService"
-    ],
-    "tag": "api"
-  },
-  "policy": {
-    "levels": {
-      "0": {
-        "statsUserDownlink": true,
-        "statsUserUplink": true
-      }
-    },
-    "system": {
-      "statsInboundUplink": true,
-      "statsInboundDownlink": true
-    }
   }
 }
 END
