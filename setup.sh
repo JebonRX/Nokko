@@ -137,8 +137,8 @@ echo "    ----------------" | tee -a log-install.txt
 echo "   - Xray Vmess Ws Tls       : 443"  | tee -a log-install.txt
 echo "   - Xray Vless Ws Tls       : 443"  | tee -a log-install.txt
 echo "   - Xray Vless Tcp Xtls     : 443"  | tee -a log-install.txt
-echo "   - Xray Vmess Ws None Tls  : 8443"  | tee -a log-install.txt
-echo "   - Xray Vless Ws None Tls  : 8442"  | tee -a log-install.txt
+echo "   - Xray Vmess Ws None Tls  : 8080"  | tee -a log-install.txt
+echo "   - Xray Vless Ws None Tls  : 80"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI TROJAN]"  | tee -a log-install.txt
 echo "    ------------------" | tee -a log-install.txt
