@@ -42,7 +42,7 @@ read -p "        Please Input Number  [1-14 or x] :  "  sys
 echo -e ""
 case $sys in
 1)
-sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill;add-host
+lsof -t -i tcp:80 -s tcp:listen | xargs kill;add-host
 ;;
 2)
 certv2ray
